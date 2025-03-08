@@ -1,4 +1,22 @@
 spring:
   application:
     name: stockTradeService
+  datasource:
+    url: jdbc:mysql://localhost:3306/stockTrade
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-vadxcvucf3d58rna.us.auth0.com/
+server:
+  port: 8080
 
+auth0:
+  domain: dev-vadxcvucf3d58rna.us.auth0.com
+  clientId: 2hS1qGOUOxJMpD0lKyEfZk7LsKxKxGMy
+  clientSecret: e8G3ewWhao8jao3cm5NS5_lOVZYXURbghfBQHeVDCmuDIu2JfYbKIRcdtEou4vEG
+  redirectUri: "https://www.google.com"
+  audience: stock-trade-api
