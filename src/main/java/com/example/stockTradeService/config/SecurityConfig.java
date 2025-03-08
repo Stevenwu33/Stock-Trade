@@ -19,6 +19,8 @@ public class SecurityConfig {
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/auth0/signIn").permitAll()
+                        .requestMatchers("/auth0/getToken").permitAll()
                         .anyRequest().authenticated()
                 )
                 .cors(withDefaults())
