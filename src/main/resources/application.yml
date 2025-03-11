@@ -4,8 +4,15 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/stockTrade
     username: root
-    password: root
+    password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update   # 👈 Add this to create tables
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
   security:
     oauth2:
       resourceserver:
@@ -18,5 +25,5 @@ auth0:
   domain: dev-vadxcvucf3d58rna.us.auth0.com
   clientId: 2hS1qGOUOxJMpD0lKyEfZk7LsKxKxGMy
   clientSecret: e8G3ewWhao8jao3cm5NS5_lOVZYXURbghfBQHeVDCmuDIu2JfYbKIRcdtEou4vEG
-  redirectUri: "https://www.google.com"
+  redirectUri: "http://localhost:4200/"
   audience: stock-trade-api
