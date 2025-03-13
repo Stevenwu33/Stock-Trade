@@ -2,24 +2,82 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Stock Transaction</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        input, button {
+            margin-top: 10px;
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            display: block;
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<h2>Stock Transaction</h2>
-<p>You are buying <strong th:text="${stock.ticker}"></strong> - <span th:text="${stock.companyName}"></span></p>
-<p>Current Price: $<span th:text="${stock.currentPrice}"></span></p>
+<div class="container">
+    <h2>Stock Transaction</h2>
+    <p>You are buying <strong th:text="${stock.ticker}"></strong> - <span th:text="${stock.companyName}"></span></p>
+    <p>Current Price: $<span th:text="${stock.currentPrice}"></span></p>
 
-<!-- Redirect to Checkout (NO transaction created yet) -->
-<form th:action="@{/transaction/checkout}" method="get">
-    <input type="hidden" name="stockId" th:value="${stock.id}">
-    <input type="hidden" name="userId" th:value="${userId}">    <!-- carried over by url get mapping-->
+    <!-- Redirect to Checkout (NO transaction created yet) -->
+    <form th:action="@{/transaction/checkout}" method="get">
+        <input type="hidden" name="stockId" th:value="${stock.id}">
+        <input type="hidden" name="userId" th:value="${userId}">
 
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
 
-    <label for="quantity">Quantity:</label>
-    <input type="number" id="quantity" name="quantity" min="1" required>
+        <button type="submit">Proceed to Checkout</button>
+    </form>
 
-    <button type="submit">Proceed to Checkout</button>
-</form>
-
-<a th:href="@{/stocks}">Cancel</a>
+    <a th:href="@{/stocks}">Cancel</a>
+</div>
 </body>
 </html>

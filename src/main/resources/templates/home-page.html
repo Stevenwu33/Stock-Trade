@@ -3,20 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <title>Home-Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        /* Navbar Styling */
+        nav {
+            background-color: #007bff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-title {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: background 0.3s ease, color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background-color: white;
+            color: #007bff;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 50px;
+            background: linear-gradient(to right, #007bff, #00c3ff);
+            color: white;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #28a745;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        /* Stocks and News Containers */
+        .stocks-container, .news-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-item {
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .news-item a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .news-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 30px;
+            padding: 20px;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
+
+<!-- Navbar -->
 <nav>
-    <ul>
+    <div class="nav-title">Stock Trade</div>
+    <ul class="nav-links">
         <li><a th:href="@{/}">Home</a></li>
-        <li><a th:href="@{/register}">Sign Up</a></li>
-        <li><a th:href="@{/login}">Login</a></li>
         <li><a th:href="@{/stocks}">Invest</a></li>
         <li><a th:href="@{/profile/{userId}(userId=${user.id})}">Account</a></li>
-
+        <li><a th:href="@{/login}">Login</a></li>
+        <li><a th:href="@{/register}">Register</a></li>
     </ul>
 </nav>
 
-<!--add static things, like links to other components, news etc, maybe load a array of owned stocks?-->
+<!-- Hero Section -->
+<div class="hero">
+    <h1>Welcome to Your Investment Hub</h1>
+    <p>Start your journey towards financial growth. Invest in top-performing stocks today.</p>
+    <a th:href="@{/stocks}" class="btn">Start Investing</a>
+</div>
+
+
+
+<!-- Market News Section -->
+<div class="news-container">
+    <h2>Latest Market News</h2>
+    <ul>
+        <li class="news-item"><a href="#">Stock Market Hits Record Highs</a></li>
+        <li class="news-item"><a href="#">Tech Stocks Lead the Rally</a></li>
+        <li class="news-item"><a href="#">5 Tips for New Investors</a></li>
+    </ul>
+</div>
+<br><br><br><br><br><br><br><br>
+
+
+
 
 </body>
 </html>

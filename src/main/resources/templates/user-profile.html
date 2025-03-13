@@ -1,66 +1,75 @@
-<!--<!DOCTYPE html>-->
-<!--<html xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <title>User Profile</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<div>-->
-<!--    <h2>User Profile</h2>-->
-<!--    <p>Email: <span th:text="${user.email}"></span></p>-->
-
-<!--    &lt;!&ndash; Edit User Email Button &ndash;&gt;-->
-<!--    <form th:action="@{/user/updateEmail}" method="post">-->
-<!--        <input type="hidden" name="userId" th:value="${user.id}" />-->
-<!--        <label>-->
-<!--            <input type="text" name="newEmail" placeholder="Enter new email" required />-->
-<!--        </label>-->
-<!--        <button type="submit">Update Email</button>-->
-<!--    </form>-->
-<!--</div>-->
-
-<!--&lt;!&ndash; transaction-history.html &ndash;&gt;-->
-<!--<div>-->
-<!--    <h2>Transaction History</h2>-->
-<!--    <table>-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--            <th>Transaction ID</th>-->
-<!--            <th>Stock</th>-->
-<!--            <th>Quantity</th>-->
-<!--            <th>Amount</th>-->
-<!--            <th>Actions</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        &lt;!&ndash; Iterate over the transactions &ndash;&gt;-->
-<!--        <tr th:each="transaction : ${transactions}">-->
-<!--            <td th:text="${transaction.id}"></td>-->
-<!--            <td th:text="${transaction.stock.name}"></td>-->
-<!--            <td th:text="${transaction.quantity}"></td>-->
-<!--            <td th:text="${transaction.amount}"></td>-->
-
-<!--            &lt;!&ndash; Remove Transaction Button &ndash;&gt;-->
-<!--            <td>-->
-<!--                <form th:action="@{/transaction/delete/{transactionId}(transactionId=${transaction.id})}" method="post">-->
-<!--                    <button type="submit">Remove</button>-->
-<!--                </form>-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--    </table>-->
-<!--</div>-->
-<!--&lt;!&ndash; Navigation &ndash;&gt;-->
-<!--<a th:href="@{/}">Back to Home</a>-->
-
-<!--</body>-->
-<!--</html>-->
-
-<!--&lt;!&ndash;this ppage has the wallet info, stocks holdings info, &ndash;&gt;-->
 
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        h2, h3 {
+            color: #333;
+        }
+
+        div {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 8px 0;
+        }
+
+        input {
+            padding: 8px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 <h2>User Profile</h2>

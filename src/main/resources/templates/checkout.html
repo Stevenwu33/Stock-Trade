@@ -2,64 +2,119 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        p {
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        a {
+            display: block;
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<h2>Checkout</h2>
+<div class="container">
+    <h2>Checkout</h2>
 
-<!-- Ensure transactions exist -->
-<div th:if="${transactions}">
-    <table>
-        <tr>
-            <th>Stock</th>
-            <th>Current Price</th>
-            <th>Quantity</th>
-            <th>Actions</th>
-        </tr>
-        <tr th:each="transaction : ${transactions}">
-            <td>
-                <strong th:text="${transaction.stock.ticker}"></strong> -
-                <span th:text="${transaction.stock.companyName}"></span>
-            </td>
-            <td>$<span th:text="${transaction.stock.currentPrice}"></span></td>
-            <td><span th:text="${transaction.quantity}"></span></td>
-            <td>
-                <!-- Update Quantity -->
-                <form th:action="@{/transaction/update}" method="post">
-                    <input type="hidden" name="transactionId" th:value="${transaction.id}">
-                    <input type="hidden" name="userId" th:value="${userId}">
-                    <input type="hidden" name="stockId" th:value="${stock.id}">
-                    <label for="newQuantity">New Quantity</label>
-                    <input type="number" id="newQuantity" name="newQuantity" min="1" value="${transaction.quantity}" required>
-                    <button type="submit">Update</button>
-                </form>
+    <!-- Ensure transactions exist -->
+    <div th:if="${transactions}">
+        <table>
+            <tr>
+                <th>Stock</th>
+                <th>Current Price</th>
+                <th>Quantity</th>
+            </tr>
+            <tr th:each="transaction : ${transactions}">
+                <td>
+                    <strong th:text="${transaction.stock.ticker}"></strong> -
+                    <span th:text="${transaction.stock.companyName}"></span>
+                </td>
+                <td>$<span th:text="${transaction.stock.currentPrice}"></span></td>
+                <td><span th:text="${transaction.quantity}"></span></td>
+            </tr>
+        </table>
 
-                <!-- Remove from Checkout -->
-                <form th:action="@{/transaction/delete}" method="post">
-                    <input type="hidden" name="transactionId" th:value="${transaction.id}">
-                    <input type="hidden" name="userId" th:value="${userId}">
-                    <button type="submit">Remove</button>
-                </form>
-            </td>
-        </tr>
-    </table>
+        <!-- Total Cost -->
+        <p><strong>Total Cost:</strong> $<span th:text="${totalCost}"></span></p>
 
-    <!-- Total Cost -->
-    <p><strong>Total Cost:</strong> $<span th:text="${totalCost}"></span></p>
+        <!-- Confirm Purchase -->
+        <form th:action="@{/transaction/confirm}" method="post">
+            <input type="hidden" name="stockId" th:value="${stock.id}">
+            <input type="hidden" name="quantity" th:value="${quantity}">
+            <input type="hidden" name="userId" th:value="${userId}">
+            <button type="submit">Confirm Purchase</button>
+        </form>
+    </div>
 
-    <!-- Confirm Purchase -->
-    <form th:action="@{/transaction/confirm}" method="post">
-        <input type="hidden" name="stockId" th:value="${stock.id}">
-        <input type="hidden" name="quantity" th:value="${quantity}">
-        <input type="hidden" name="userId" th:value="${userId}">
-        <button type="submit">Confirm Purchase</button>
-    </form>
+    <!-- Show message if no transactions are present -->
+    <div th:if="${transactions == null or transactions.isEmpty()}">
+        <p>No stocks selected for checkout.</p>
+    </div>
+
+    <a th:href="@{/stocks}">Back to Stocks</a>
 </div>
-
-<!-- Show message if no transactions are present -->
-<div th:if="${transactions == null or transactions.isEmpty()}">
-    <p>No stocks selected for checkout.</p>
-</div>
-
-<a th:href="@{/stocks}">Back to Stocks</a>
 </body>
 </html>
