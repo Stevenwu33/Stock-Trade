@@ -93,6 +93,13 @@ public class TransactionController {
     }
 
 
+    @PostMapping("/delete")
+    public String deleteTransaction(@RequestParam Long transactionId, @RequestParam Long userId) {
+        stockTransactionService.deleteTransaction(transactionId);
+        return "redirect:/profile/" + userId; // Redirect back to the profile page
+    }
+
+
 
 
 

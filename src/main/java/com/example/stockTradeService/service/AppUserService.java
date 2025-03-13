@@ -44,6 +44,13 @@ public class AppUserService{
 
         return user;
     }
+    //for update function
+    public void updateEmail(Long userId, String newEmail) {
+        AppUser user = appUserRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        user.setEmail(newEmail);
+        appUserRepository.save(user); // Save updated user
+    }
 
     public Optional<AppUser> getUserById(Long id){
         return appUserRepository.findById(id);

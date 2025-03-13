@@ -136,9 +136,9 @@ public class StockTransactionService {
 
     public void deleteTransaction(Long transactionId) {
         // Check if the transaction exists
-        if (!stockTransactionRepository.existsById(transactionId)) {
-            throw new RuntimeException("Transaction not found");
-        }
+//        if (!stockTransactionRepository.existsById(transactionId)) {
+//            throw new RuntimeException("Transaction not found");
+//        }
         // Delete the transaction
         stockTransactionRepository.deleteById(transactionId);
     }

@@ -70,6 +70,14 @@
     <p>Name: <span th:text="${user.username}"></span></p>
     <p>Email: <span th:text="${user.email}"></span></p>
     <p>Wallet Balance: $<span th:text="${wallet.balance}"></span></p>
+    <!-- Edit Button -->
+    <form th:action="@{/profile/{userId}/update-email(userId=${user.id})}" method="post">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" th:value="${user.email}" required>
+        <button type="submit">Update</button>
+    </form>
+
+
 </div>
 
 <h3>Transaction History</h3>
@@ -81,6 +89,12 @@
                 Quantity: <span th:text="${transaction.quantity}"></span> |
                 Price: $<span th:text="${transaction.priceAtTransaction}"></span> |
                 Date: <span th:text="${transaction.transactionDate}"></span>
+                <!-- Delete button -->
+            <form th:action="@{/transaction/delete}" method="post" style="display:inline;">
+                <input type="hidden" name="transactionId" th:value="${transaction.id}">
+                <input type="hidden" name="userId" th:value="${user.id}">
+                <button type="submit">Delete</button>
+            </form>
             </p>
         </li>
     </ul>
