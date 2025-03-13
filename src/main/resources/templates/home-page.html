@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home-Page</title>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/register}">Sign Up</a></li>
+        <li><a th:href="@{/login}">Login</a></li>
+        <li><a th:href="@{/stocks}">Invest</a></li>
+        <li><a th:href="@{/profile/{userId}(userId=${user.id})}">Account</a></li>
+
+    </ul>
+</nav>
+
+<!--add static things, like links to other components, news etc, maybe load a array of owned stocks?-->
+
+</body>
+</html>

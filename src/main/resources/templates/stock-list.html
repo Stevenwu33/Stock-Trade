@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Stock Market</title>
+</head>
+<body>
+<h2>Investing </h2>
+<div>
+    <ul>
+        <li th:each="stock : ${stocks}">
+            <a th:href="@{/transaction/new(stockId=${stock.id}, userId=${userId})}">
+                <strong th:text="${stock.ticker}"></strong> -
+                <span th:text="${stock.companyName}"></span>
+                ($<span th:text="${stock.currentPrice}"></span>)
+            </a>
+        </li>
+    </ul>
+</div>
+
+<a th:href="@{/}">Back to Home page</a>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,6 +19,9 @@ public class StockService {
         return stockRepository.findAll();
     }
 
+
+
+
 //    public List<Stock> getAllByCurrentPriceAsc(){
 //        return stockRepository.getAllByCurrentPriceAsc();
 //    }

@@ -17,13 +17,56 @@ public class Wallet {
     private Long id;
 
     @OneToOne
+    @JoinColumn(name = "app_user_id", nullable = false)
     private AppUser appUser;
 
-    private BigDecimal balance;
+    private BigDecimal balance = BigDecimal.valueOf(10000.00);
 
     @Column(nullable = false)
     @UpdateTimestamp
     private LocalDateTime updatedAt; // Tracks last balance change
+
+    public Wallet() {
+    }
+
+    public Wallet(Long id, AppUser appUser, BigDecimal balance, LocalDateTime updatedAt) {
+        this.id = id;
+        this.appUser = appUser;
+        this.balance = balance;
+        this.updatedAt = updatedAt;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public AppUser getAppUser() {
+        return appUser;
+    }
+
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
     @Override
     public String toString() {

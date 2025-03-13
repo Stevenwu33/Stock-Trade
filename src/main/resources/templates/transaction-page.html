@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Stock Transaction</title>
+</head>
+<body>
+<h2>Stock Transaction</h2>
+<p>You are buying <strong th:text="${stock.ticker}"></strong> - <span th:text="${stock.companyName}"></span></p>
+<p>Current Price: $<span th:text="${stock.currentPrice}"></span></p>
+
+<!-- Redirect to Checkout (NO transaction created yet) -->
+<form th:action="@{/transaction/checkout}" method="get">
+    <input type="hidden" name="stockId" th:value="${stock.id}">
+    <input type="hidden" name="userId" th:value="${userId}">    <!-- carried over by url get mapping-->
+
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" min="1" required>
+
+    <button type="submit">Proceed to Checkout</button>
+</form>
+
+<a th:href="@{/stocks}">Cancel</a>
+</body>
+</html>
