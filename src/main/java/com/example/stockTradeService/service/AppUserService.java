@@ -27,6 +27,22 @@ public class AppUserService{
         this.appUserRepository = appUserRepository;
     }
 
+
+
+
+    public Optional<AppUser> getUserById(Long id){
+        return appUserRepository.findById(id);
+    }
+
+    //for update function
+    public void updateEmail(Long userId, String newEmail) {
+        AppUser user = appUserRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        user.setEmail(newEmail);
+        appUserRepository.save(user); // Save updated user
+    }
+
+
     public AppUser createUser(String username, String email) {
 
         AppUser user = new AppUser();       // when will we use this??
@@ -44,17 +60,7 @@ public class AppUserService{
 
         return user;
     }
-    //for update function
-    public void updateEmail(Long userId, String newEmail) {
-        AppUser user = appUserRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-        user.setEmail(newEmail);
-        appUserRepository.save(user); // Save updated user
-    }
 
-    public Optional<AppUser> getUserById(Long id){
-        return appUserRepository.findById(id);
-    }
     public Optional<AppUser> getUserByEmail(String email){
         return appUserRepository.findByEmail(email);
     }

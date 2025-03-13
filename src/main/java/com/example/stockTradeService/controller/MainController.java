@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 
@@ -38,7 +40,41 @@ public class MainController {
     }
 
 
+    @PostMapping("/login")
+    public String loginUser(@RequestParam String name,
+                            @RequestParam String email,
+                            @RequestParam String password,
+                            Model model) {
+        // Simulating authentication - Replace this with actual user verification logic
+        if ("test@example.com".equals(email) && "password123".equals(password)) {
+            model.addAttribute("user", name);
+            return "redirect:/"; // Redirect to the home page on successful login
+        } else {
+            model.addAttribute("error", "Invalid email or password");
+            return "login"; // Reload login page with an error message
+        }
 
+
+
+    }
+
+    @GetMapping("/register")
+    public String getRegister() {
+        return "register"; // This will load register.html
+    }
+
+    @PostMapping("/register")
+    public String registerUser(@RequestParam String name,
+                               @RequestParam String email,
+                               @RequestParam String password,
+                               @RequestParam String referralSource,
+                               Model model) {
+        // Simulated user registration - replace with actual DB logic
+        System.out.println("New User Registered: " + name + " | " + email + " | Referred by: " + referralSource);
+
+        // Redirect to login after successful registration
+        return "redirect:/login";
+    }
 
 
 
