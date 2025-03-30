@@ -1,8 +1,8 @@
 # 📈 Stock Trade Capstone Project
 
-![Stock Trading](https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif)
+![Stock Trading](https://media.giphy.com/media/l0Exk8EUzSLsrErEQ/giphy.gif)
 
-## 🚀 About the Project
+## About the Project
 The **Stock Trade Capstone Project** is a full-stack Robinhood-style trading app where users can:
 
 ✅ **View a personalized dashboard** with stock holdings 📊  
@@ -12,7 +12,7 @@ The **Stock Trade Capstone Project** is a full-stack Robinhood-style trading app
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### **Frontend**  
 - **Angular (planned but later switched to Thymeleaf for faster UI development)**  
