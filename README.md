@@ -1,6 +1,6 @@
 # 📈 Stock Trade Capstone Project
 
-![Stock Trading](![image](https://github.com/user-attachments/assets/1ad01ebe-f8a9-46d1-8bf9-75253414906a)
+![Stock Trading]([![image](https://github.com/user-attachments/assets/1ad01ebe-f8a9-46d1-8bf9-75253414906a)](https://gifdb.com/images/high/wolf-of-wall-street-fun-coupons-kalilyv59y2hwc6n.webp)
 )
 
 ## About the Project
