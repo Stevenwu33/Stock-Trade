@@ -1,6 +1,6 @@
 # 📈 Stock Trade Capstone Project
 
-![Stock Trading](https://media.giphy.com/media/YOvJzI3Pz4X7E/giphy.gif)
+![Stock Trading](https://media.giphy.com/media/TLayDh2IZOHPW/giphy.gif)
 
 
 ## About the Project
