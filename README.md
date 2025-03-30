@@ -1,7 +1,6 @@
 # 📈 Stock Trade Capstone Project
 
-![Stock Trading]([![image](https://github.com/user-attachments/assets/1ad01ebe-f8a9-46d1-8bf9-75253414906a)](https://gifdb.com/images/high/wolf-of-wall-street-fun-coupons-kalilyv59y2hwc6n.webp)
-)
+![Stock Trading](https://media.giphy.com/media/YOvJzI3Pz4X7E/giphy.gif)
 
 ## About the Project
 The **Stock Trade Capstone Project** is a full-stack Robinhood-style trading app where users can:
