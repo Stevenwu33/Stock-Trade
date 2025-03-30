@@ -1,4 +1,4 @@
-# 📈 Stock Trade Capstone Project
+# Stock Trade Capstone Project
 
 ![Stock Trading](https://media.giphy.com/media/TLayDh2IZOHPW/giphy.gif)
 
