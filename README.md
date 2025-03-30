@@ -1,6 +1,6 @@
 # 📈 Stock Trade Capstone Project
 
-![Stock Trading](https://media.giphy.com/media/YOvJzI3Pz4X7E/giphy.gif)
+![Stock Trading]([https://media.giphy.com/media/YOvJzI3Pz4X7E/giphy.gif](https://media.giphy.com/media/TLayDh2IZOHPW/giphy.gif?cid=ecf05e47d8gl7ncisfrtkbjqkfzybimj4b3kj9ybk3bmhbr6&ep=v1_gifs_search&rid=giphy.gif&ct=g))
 
 ## About the Project
 The **Stock Trade Capstone Project** is a full-stack Robinhood-style trading app where users can:
