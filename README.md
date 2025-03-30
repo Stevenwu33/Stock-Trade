@@ -23,11 +23,11 @@ The **Stock Trade Capstone Project** is a full-stack Robinhood-style trading app
 - **Bootstrap for styling**
 
 ### **Backend**  
-- ☕ **Spring Boot** (Java)
-- 🗄 **MySQL Database** for persistent storage
+- **Spring Boot** (Java)
+- **MySQL Database** for persistent storage
 
 ### **Version Control**
-- 🛠 **Git & GitHub** for collaboration & tracking changes
+- **Git & GitHub** for collaboration & tracking changes
 
 ---
 
