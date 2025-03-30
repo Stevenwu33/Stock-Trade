@@ -6,10 +6,12 @@
 ## About the Project
 The **Stock Trade Capstone Project** is a full-stack Robinhood-style trading app where users can:
 
-
 ✅ **View a personalized dashboard** with stock holdings 
+
 ✅ **Deposit & withdraw funds** from a virtual bank account 
+
 ✅ **Simulate buying & selling stocks** with real-time updates 
+
 ✅ **Track portfolio performance** with visual insights 
 
 ---
