@@ -73,22 +73,33 @@
 </head>
 <body>
 <h2>User Profile</h2>
-
+<!--  //Binding is in the AppUserController -->
 <div>
-    <h3>Account Information</h3>
-    <p>Name: <span th:text="${user.username}"></span></p>
-    <p>Email: <span th:text="${user.email}"></span></p>
-    <p>Wallet Balance: $<span th:text="${wallet.balance}"></span></p>
-    <!-- Edit Button -->
-    <form th:action="@{/profile/{userId}/update-email(userId=${user.id})}" method="post">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" th:value="${user.email}" required>
-        <button type="submit">Update</button>
-    </form>
+    <h3><span th:text="${user.name}"></span></h3>
+    <p>@<span th:text="${user.username}"></span></p>
+    <p><span th:text="${user.email}"></span></p>
+    <a><span style="text-decoration: underline; font-size: small" >Edit Profile</span></a>
+<!--    <span style="font-size: 12px; color: blue; text-decoration: underline;" >Edit Profile</span>-->
+
+    <!-- Edit Button  (disabled)-->
+<!--    <form th:action="@{/profile/{userId}/update-email(userId=${user.id})}" method="post">-->
+<!--        <label for="email">Email:</label>-->
+<!--        <input type="email" id="email" name="email" th:value="${user.email}" required>-->
+<!--        <button type="submit">Update</button>-->
+<!--    </form>-->
 
 
 </div>
-
+<!-- //Binding is in the AppUserController -->
+<h3>Bank Transfer</h3>
+<div>
+    <h4>Cash Available</h4>
+    <p> $<span th:text="${wallet.balance}"></span></p>
+    <br>
+    <button>Withdrawal</button>
+    <button>Deposit</button>
+</div>
+<!-- //Binding is in the transaction Controller-->
 <h3>Transaction History</h3>
 <div>
     <ul>
